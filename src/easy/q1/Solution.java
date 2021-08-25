@@ -1,6 +1,5 @@
-package com.company;
+package easy.q1;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
