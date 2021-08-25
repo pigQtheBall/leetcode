@@ -1,6 +1,6 @@
-package com.company;
+package easy.q70;
 
-class Solution70 {
+class Solution {
     public int climbStairs(int n) {
         if (n==1 || n==2) return n;
         int arr[] = new int[n];

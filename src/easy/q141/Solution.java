@@ -1,17 +1,9 @@
-package com.company;
+package easy.q141;
+
+import leetcode.adt.ListNode;
 import java.util.HashMap;
 
-//  Definition for singly-linked list.
-  class ListNode {
-      int val;
-      ListNode next;
-      ListNode(int x) {
-          val = x;
-          next = null;
-      }
-  }
-
-public class Solution141 {
+public class Solution {
     public static boolean hasCycle(ListNode head) {
         // key = node.val
         // value = next node
@@ -29,12 +21,11 @@ public class Solution141 {
         return false;
     }
 
-
     public static void main(String[] args) {
         ListNode hd = new ListNode(3);
-        hd.next = hd;
+
         ListNode node2 = new ListNode(2);
-//        hd.next = node2;
+        hd.next = node2;
 
         ListNode node3 = new ListNode(0);
         node2.next = node3;
