@@ -12,7 +12,7 @@ public class Solution {
         ListNode node = head;
         while(node != null) {
 //            System.out.println(head.val);
-            if (map.containsValue(node)) return true;
+            if (map.containsValue(node.next)) return true;
             else {
                 map.put(node.val, node.next);
                 node = node.next;
