@@ -3,22 +3,37 @@ package easy.q876;
 import java.util.List;
 
 public class Solution {
+    // second time solution
     public ListNode middleNode(ListNode head) {
+        if(head == null) return null;
         if(head.next == null) return head;
         if(head.next.next == null) return head.next;
         ListNode slow = head;
-        ListNode fast = head.next.next;
-        while(fast.next!=null){
-            if(fast.next.next != null){
-                fast = fast.next.next;
-                slow = slow.next;
-            }else{
-                fast = fast.next;
-                slow = slow.next;
-            }
+        ListNode fast = head;
+        while(fast != null && fast.next != null){
+            fast = fast.next.next;
+            slow = slow.next;
         }
-        return slow.next;
+        return slow;
     }
+
+    // first time solution
+//    public ListNode middleNode(ListNode head) {
+//        if(head.next == null) return head;
+//        if(head.next.next == null) return head.next;
+//        ListNode slow = head;
+//        ListNode fast = head.next.next;
+//        while(fast.next!=null){
+//            if(fast.next.next != null){
+//                fast = fast.next.next;
+//                slow = slow.next;
+//            }else{
+//                fast = fast.next;
+//                slow = slow.next;
+//            }
+//        }
+//        return slow.next;
+//    }
 
 }
 
