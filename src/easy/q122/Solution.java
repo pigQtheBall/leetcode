@@ -1,6 +1,30 @@
 package easy.q122;
 
 public class Solution {
+    // second time solutions
+    public int maxProfit3(int[] prices) {
+        int profit = 0;
+        for(int i =1; i<prices.length; i++){
+            if (prices[i] >= prices[i-1]) {
+                profit += prices[i] - prices[i - 1];
+            }
+        }
+        return profit;
+    }
+
+    public int maxProfit2(int[] prices) {
+        int profit = 0;
+        int prev_price = prices[0];
+        for(int i =1; i<prices.length; i++){
+            if (prices[i] >= prev_price){
+                profit += prices[i] - prev_price;
+            }
+            prev_price = prices[i];
+        }
+        return profit;
+    }
+
+    // first time solution
     public int maxProfit(int[] prices) {
         int max = 0;
         int i = 0;
