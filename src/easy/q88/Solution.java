@@ -1,6 +1,24 @@
 package easy.q88;
 
 public class Solution {
+    // 2nd try: not really working :(
+    // need to fix this
+    // see you tomorrow :)
+    public void merge2(int[] nums1, int m, int[] nums2, int n) {
+        int[] res = new int[m+n];
+        int r = 0;
+        int i = 0;
+        int j = 0;
+        while(i != m && j != n){
+            res[r] = Math.min(nums1[i], nums2[j]);
+            r++;
+            if(nums1[i] <= nums2[j]) i++;
+            else j++;
+        }
+        for (int idx = 0; idx < m+n; idx++) {
+            nums1[idx] = res[idx];
+        }
+    }
 //    public void merge(int[] nums1, int m, int[] nums2, int n) {
 //        int[] result = new int[m+n];
 //        int i = 0;
