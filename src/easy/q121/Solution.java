@@ -1,6 +1,21 @@
 package easy.q121;
 
 public class Solution {
+    // myself writing :)
+    public int maxProfit5(int[] prices){
+        int min = prices[0];
+        int max = prices[0];
+        int diff = 0;
+        for(int i = 0; i<prices.length; i++){
+            if(prices[i] < min) min = prices[i];
+            if(prices[i]-min > diff){
+                max = prices[i];
+                diff = prices[i] - min;
+            }
+        }
+        return diff;
+    }
+
     public int maxProfit(int[] prices) {
         int max = 0;
         int i,j;
