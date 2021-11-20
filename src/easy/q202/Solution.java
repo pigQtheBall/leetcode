@@ -8,18 +8,18 @@ public class Solution {
     // ie, if any number appears more than once, return false
     // 笑掉大牙了这个solution！！！！
     public boolean isHappy(int n) {
-        String num = ""+n;
         HashSet<Integer> set = new HashSet<Integer>();
         int sum = 0;
         while(sum != 1){
             sum = 0;
-            for(int i =0; i< num.length(); i++){
-                int cur = num.charAt(i) - '0';
+            while(n > 0){
+                int cur = n % 10;
                 sum += cur * cur;
+                n = n / 10;
             }
             if(set.contains(sum)) return false;
             set.add(sum);
-            num = ""+sum;
+            n = sum;
         }
         return true;
     }
