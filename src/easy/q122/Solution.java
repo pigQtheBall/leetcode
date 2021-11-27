@@ -1,6 +1,15 @@
 package easy.q122;
 
 public class Solution {
+    public int maxProfit4(int[] prices) {
+        if(prices.length == 1) return 0;
+        int profit = Math.max(0, prices[1] - prices[0]);
+        for(int i = 2; i<prices.length; i++){
+            profit += Math.max(0, prices[i] - prices[i-1]);
+        }
+        return profit;
+    }
+
     // second time solutions
     public int maxProfit3(int[] prices) {
         int profit = 0;
