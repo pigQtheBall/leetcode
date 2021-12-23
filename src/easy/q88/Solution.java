@@ -1,6 +1,31 @@
 package easy.q88;
 
 public class Solution {
+    public void merge3(int[] nums1, int m, int[] nums2, int n) {
+        int i = nums1.length-1;
+        int j = m-1;
+        int k = n-1;
+        while(i >= 0 && (j >= 0 || k >= 0)){
+            if(k>=0 && j>=0 && nums1[j] >= nums2[k]){
+                nums1[i] = nums1[j];
+                i--;
+                j--;
+            }else if (k>=0 && j>=0 && nums1[j] < nums2[k]){
+                nums1[i] = nums2[k];
+                i--;
+                k--;
+            } else if(j < 0){
+                nums1[i] = nums2[k];
+                i--;
+                k--;
+            } else if(k < 0){
+                nums1[i] = nums1[j];
+                i--;
+                j--;
+            }
+        }
+    }
+
     public void merge2(int[] nums1, int m, int[] nums2, int n) {
         int[] result = new int[m+n];
         int i = 0;
