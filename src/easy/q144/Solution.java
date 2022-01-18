@@ -1,11 +1,28 @@
 package easy.q144;
 
+import com.sun.source.tree.Tree;
 import leetcode.adt.TreeNode;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Stack;
 
 public class Solution {
+    // iterative solution
+    public List<Integer> preorderTraversal2(TreeNode root) {
+        ArrayList<Integer> res = new ArrayList<>();
+        if(root == null) return res;
+        Stack<TreeNode> stack = new Stack<>();
+        stack.push(root);
+        while(!stack.isEmpty()){
+            TreeNode cur = stack.pop();
+            res.add(cur.val);
+            if(cur.right != null) stack.push(cur.right);
+            if(cur.left != null) stack.push(cur.left);
+        }
+        return res;
+    }
+
     // recursive solution
     public List<Integer> preorderTraversal(TreeNode root) {
         ArrayList<Integer> res = new ArrayList<>();
