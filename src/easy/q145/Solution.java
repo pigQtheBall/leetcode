@@ -8,6 +8,28 @@ import java.util.List;
 import java.util.Stack;
 
 public class Solution {
+    // iterative solution 2
+    public List<Integer> postorderTraversal3(TreeNode root) {
+        ArrayList<Integer> res = new ArrayList<>();
+        if(root == null) return res;
+        Stack<TreeNode> stack = new Stack<>();
+        stack.push(root);
+        while(!stack.isEmpty()){
+            TreeNode top = stack.peek();
+            if(top != null){
+                stack.pop();
+                stack.push(top);
+                stack.push(null);
+                if(top.right != null) stack.push(top.right);
+                if(top.left != null) stack.push(top.left);
+            }else{
+                stack.pop();
+                res.add(stack.pop().val);
+            }
+        }
+        return res;
+    }
+
     // iterative solution
     public List<Integer> postorderTraversal2(TreeNode root) {
         ArrayList<Integer> res = new ArrayList<>();
