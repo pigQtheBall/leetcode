@@ -8,6 +8,27 @@ import java.util.List;
 import java.util.Stack;
 
 public class Solution {
+    public List<Integer> preorderTraversal4(TreeNode root) {
+        ArrayList<Integer> res = new ArrayList<>();
+        if(root == null) return res;
+        Stack<TreeNode> stack = new Stack<>();
+        stack.push(root);
+        // out stack order: root, left, right
+        // in stack order: right, left, root
+        while(!stack.isEmpty()){
+            TreeNode cur = stack.pop();
+            if(cur != null){
+                if(cur.right != null) stack.push(cur.right);
+                if(cur.left != null) stack.push(cur.left);
+                stack.push(cur);
+                stack.push(null);
+            }else{
+                res.add(stack.pop().val);
+            }
+        }
+        return res;
+    }
+
     // iterative solution 2
     public List<Integer> preorderTraversal3(TreeNode root) {
         ArrayList<Integer> res = new ArrayList<>();
