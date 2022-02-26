@@ -7,6 +7,28 @@ import java.util.List;
 import java.util.Stack;
 
 public class Solution {
+    public List<Integer> inorderTraversal4(TreeNode root) {
+        // order: left, root, right
+        ArrayList<Integer> res = new ArrayList<>();
+        if(root == null) return res;
+        Stack<TreeNode> stack = new Stack<>();
+        stack.push(root);
+        // we only add the value into result list when we meet a null node
+        // use null as a marker to mark the order
+        while(!stack.isEmpty()){
+            TreeNode cur = stack.pop();
+            if(cur != null){
+                if(cur.right != null) stack.push(cur.right);
+                stack.push(cur);
+                stack.push(null);
+                if(cur.left != null) stack.push(cur.left);
+            }else{
+                res.add(stack.pop().val);
+            }
+        }
+        return res;
+    }
+
     // iterative solution 2
     public List<Integer> inorderTraversal3(TreeNode root) {
         ArrayList<Integer> res = new ArrayList<>();
