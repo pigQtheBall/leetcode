@@ -8,6 +8,24 @@ import java.util.List;
 import java.util.Queue;
 
 public class Solution {
+    public List<List<Integer>> levelOrder2(TreeNode root) {
+        ArrayList<List<Integer>> res = new ArrayList<>();
+        if (root == null) return res;
+        Queue<TreeNode> queue = new LinkedList<>();
+        queue.offer(root);
+        while (!queue.isEmpty()) {
+            int levelLength = queue.size();
+            List<Integer> level = new ArrayList<>();
+            for (int i = 0; i < levelLength; i++) {
+                TreeNode cur = queue.poll();
+                level.add(cur.val);
+                if (cur.left != null) queue.offer(cur.left);
+                if (cur.right != null) queue.offer(cur.right);
+            }
+            res.add(level);
+        }
+        return res;
+    }
     // using queue
     public List<List<Integer>> levelOrder(TreeNode root) {
         ArrayList<List<Integer>> res = new ArrayList<>();
